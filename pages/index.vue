@@ -71,16 +71,105 @@
         </div>
       </div>
     </section>
+
+    <!-- What is FriendsQuest -->
+    <section id="friendsquest" class="px-8 pt-20 pb-12">
+      <div class="mx-auto max-w-7xl">
+        <h2 class="text-3xl font-bold mb-6">Travel, Share and Follow Footprints. Try It for Yourself.</h2>
+        <p class="max-w-[550px]">
+          Battle your friends in traveling around the world, find places you have never been before and share memories
+          with your friends in the most unique way.
+        </p>
+      </div>
+      <div>
+        <h3 ref="title"></h3>
+        <p ref="description"></p>
+      </div>
+      <div>
+        <client-only>
+          <div id="horizontal-center" class="flex justify-center mx-auto max-w-[1256px] overflow-hidden">
+              <div ref="slider" @scroll="handleScroll" class="flex overflow-x-scroll snap-mandatory snap-x px-[532px]">
+                <div
+                    class="item w-[218px] h-[473px] flex justify-center items-center
+                    snap-center shrink-0 mx-[3rem] first:ml-0 last:mr-0" v-for="image in sliderImages" :key="image">
+                  <img :src="image" alt="">
+                </div>
+              </div>
+          </div>
+        </client-only>
+      </div>
+    </section>
   </main>
 </template>
 
-<script>
-export default {
-  name: "index"
+
+<script setup>
+import {ref} from "vue";
+
+const slider = ref()
+const title = ref()
+const description = ref()
+
+const sliderImages = ref([
+  new URL("@/assets/images/slider-1.png", import.meta.url),
+  new URL("@/assets/images/slider-2.png", import.meta.url),
+  new URL("@/assets/images/slider-3.png", import.meta.url),
+  new URL("@/assets/images/slider-4.png", import.meta.url),
+  new URL("@/assets/images/slider-5.png", import.meta.url),
+  new URL("@/assets/images/slider-6.png", import.meta.url),
+  new URL("@/assets/images/slider-7.png", import.meta.url),
+])
+
+let currentSlideIdx = 0
+
+const sliderText = [
+  {
+    title: "Create Your Footprint",
+    text: "Take a picture of your special moment and describe what makes this memory unforgettable. Your footprint " +
+        "will be left exactly where you took it."
+  },
+  {
+    title: "Connect With Your Friends",
+    text: "Invite your friends to join the fun! More friends means more memories."
+  },
+  {
+    title: "Trace Your Friend's Footprints",
+    text: "Visit the places where your friends left their footprints and open their memories to see whats behind " +
+        "the footprints."
+  },
+  {
+    title: "Leave Auditory Memories",
+    text: "When capturing a memory, the two preceding seconds are also recorded and stored as sound sequences with" +
+        " your footprint. When you are too far away to open a footprint you can always listen to the sounds behind it."
+  },
+  {
+    title: "React to Footprints",
+    text: "Tell your friends you visited their footprints by leaving a comment or emoji."
+  },
+  {
+    title: "Collect Points",
+    text: "Climb up the leader board by collecting points - competing against your friends and the world's " +
+        "leading travelers."
+  },
+  {
+    title: "Visit Your Own Memories",
+    text: "In your profile you will find all your left footprints. Alternatively, you can also view them on the globe."
+  }
+]
+
+function handleScroll(event) {
+  const fromLeft = event.currentTarget.scrollLeft
+  const newSlideIdx = (fromLeft - 109) / (218 + 6 * 16)
+  if (newSlideIdx % 1 === 0) {
+    currentSlideIdx = newSlideIdx
+    title.value.innerText = sliderText[newSlideIdx].title
+    description.value.innerText = sliderText[newSlideIdx].text
+  }
 }
+
 </script>
 
-<style scoped>
+<style>
   @keyframes spin-reverse {
     0% {
       transform: rotate(0deg);
