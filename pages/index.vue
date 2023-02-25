@@ -81,22 +81,33 @@
           with your friends in the most unique way.
         </p>
       </div>
-      <div>
-        <h3 ref="title"></h3>
-        <p ref="description"></p>
+      <div class="mt-24 mb-20 h-[10rem] relative">
+        <div class="absolute left-[calc(50%-218px/2)]">
+          <h3 ref="title" class="font-bold text-xl mb-3"></h3>
+          <p ref="description" class="max-w-[450px]"></p>
+        </div>
       </div>
       <div>
-        <client-only>
-          <div id="horizontal-center" class="flex justify-center mx-auto max-w-[1256px] overflow-hidden">
-              <div ref="slider" @scroll="handleScroll" class="flex overflow-x-scroll snap-mandatory snap-x px-[532px]">
-                <div
-                    class="item w-[218px] h-[473px] flex justify-center items-center
-                    snap-center shrink-0 mx-[3rem] first:ml-0 last:mr-0" v-for="image in sliderImages" :key="image">
-                  <img :src="image" alt="">
+          <div class="flex justify-center mx-auto max-w-[1256px] h-[498px] overflow-hidden">
+              <div ref="slider" @scroll="handleScroll"
+                   class="flex items-center overflow-x-scroll hide-scrollbar snap-mandatory snap-x">
+                <client-only>
+                  <div
+                      class="w-[218px] h-[473px] flex snap-center shrink-0 mx-[3rem] first:ml-0 last:mr-0"
+                      v-for="image in sliderImages" :key="image">
+                    <img :src="image" alt="">
+                  </div>
+                </client-only>
+                <!-- Phone -->
+                <div class="aspect-[366/729] max-w-[250px] h-[498px] absolute left-[calc(50%-246px/2)]">
+                  <div
+                      class="absolute inset-y-[calc(1/729*100%)] right-[calc(5/729*100%)] left-[calc(7/729*100%)]
+                rounded-[calc(58/366*100%)/calc(58/729*100%)] shadow-2xl"></div>
+                  <img src="~/assets/svg/phone-frame.svg" alt="Phone Frame" width="366" height="729" class="absolute">
                 </div>
               </div>
+
           </div>
-        </client-only>
       </div>
     </section>
   </main>
@@ -104,7 +115,7 @@
 
 
 <script setup>
-import {ref} from "vue";
+import {ref, onMounted, onBeforeUnmount} from "vue";
 
 const slider = ref()
 const title = ref()
@@ -157,14 +168,33 @@ const sliderText = [
   }
 ]
 
+onMounted(() => {
+  setSliderText(0)
+  setSliderPadding()
+  window.addEventListener("resize", setSliderPadding)
+})
+
+onBeforeUnmount(() => {
+  window.removeEventListener("resize", setSliderPadding)
+})
+
+function setSliderPadding() {
+  const width = document.documentElement.clientWidth
+  const padding = width / 2 - 218 / 2 - 2 * 16
+  slider.value.style.paddingLeft = padding + "px"
+  slider.value.style.paddingRight = padding + "px"
+}
+
+function setSliderText(idx) {
+  title.value.innerText = sliderText[idx].title
+  description.value.innerText = sliderText[idx].text
+}
+
 function handleScroll(event) {
   const fromLeft = event.currentTarget.scrollLeft
-  const newSlideIdx = (fromLeft - 109) / (218 + 6 * 16)
-  if (newSlideIdx % 1 === 0) {
-    currentSlideIdx = newSlideIdx
-    title.value.innerText = sliderText[newSlideIdx].title
-    description.value.innerText = sliderText[newSlideIdx].text
-  }
+  const newSlideIdx = Math.floor(fromLeft / (218 + 6 * 16))
+  currentSlideIdx = newSlideIdx
+  setSliderText(newSlideIdx)
 }
 
 </script>
@@ -194,5 +224,16 @@ function handleScroll(event) {
 
   .animate-spin-slow {
     animation: spin 4s linear infinite;
+  }
+
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .hide-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
   }
 </style>
