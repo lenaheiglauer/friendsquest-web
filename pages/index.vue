@@ -73,8 +73,13 @@
     </section>
 
     <!-- What is FriendsQuest -->
-    <section id="friendsquest" class="px-8 pt-20 pb-12">
-      <div class="mx-auto max-w-7xl">
+    <section id="friendsquest" class="pt-20 pb-24 relative">
+      <div class="absolute right-0 top-28">
+        <svg width="957" height="800" viewBox="0 0 957 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M99 125.521L957 0V800L0 275.835L99 125.521Z" fill="#6AD3E5"/>
+        </svg>
+      </div>
+      <div class="mx-auto max-w-7xl relative z-10 px-8">
         <h2 class="text-3xl font-bold mb-6">Travel, Share and Follow Footprints. Try It for Yourself.</h2>
         <p class="max-w-[550px]">
           Battle your friends in traveling around the world, find places you have never been before and share memories
@@ -88,16 +93,13 @@
         </div>
       </div>
       <div>
-          <div
-              class="flex justify-center mx-auto max-w-[1256px] h-[calc(498px+6rem)] overflow-hidden relative
-              before:bg-gradient-to-r before:from-white before:h-[498px] before:w-16 before:absolute before:left-0
-              after:bg-gradient-to-l after:from-white after:h-[498px] after:w-16 after:absolute after:right-0"
-          >
+          <div class="flex justify-center mx-auto h-[calc(498px+6rem)] overflow-hidden relative">
               <div ref="slider" @scroll="handleScroll"
                    class="flex items-center overflow-x-scroll scroll-smooth hide-scrollbar snap-mandatory snap-x mt-[-6rem]">
                 <client-only>
                   <div
-                      class="w-[218px] h-[473px] flex snap-center shrink-0 mx-[3rem] first:ml-0 last:mr-0"
+                      class="w-[218px] h-[473px] flex snap-center shrink-0 mx-[3rem] first:ml-0 last:mr-0
+                      border border-solid border-gray-200"
                       v-for="image in sliderImages" :key="image">
                     <img :src="image" alt="">
                   </div>
@@ -129,6 +131,17 @@
       </div>
       <div class="mx-auto max-w-7xl">
         <FAQs/>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="px-8 pt-20 pb-12">
+      <div class="mx-auto max-w-7xl mb-20">
+        <h2 class="text-3xl font-bold mb-6">About Us</h2>
+        <p class="max-w-[550px]">
+          We are four students who share the same passion - travel to unique places and share them with our friends. To
+          make this experiences even more special and unique we built FriendsQuest.
+        </p>
       </div>
     </section>
   </main>
@@ -204,9 +217,8 @@ onBeforeUnmount(() => {
 
 function setSliderPadding() {
   const width = document.documentElement.clientWidth
-  const padding = width / 2 - 218 / 2 - 2 * 16
-  slider.value.style.paddingLeft = padding + "px"
-  slider.value.style.paddingRight = padding + "px"
+  slider.value.style.paddingLeft = width / 2 - 218 / 2 + "px"
+  slider.value.style.paddingRight = width / 2 - 218 / 2 - 2 * 16 + "px"
 }
 
 function setSliderText(idx) {
