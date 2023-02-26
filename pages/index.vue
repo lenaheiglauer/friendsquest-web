@@ -130,6 +130,20 @@
         </ul>
       </div>
     </section>
+
+    <div class="bg-terracotta80 px-8 py-16 text-center">
+      <h2 class="text-3xl font-bold leading-10 mb-12">Have Fun With FriendsQuest and Keep On Traveling!</h2>
+      <p class="font-bold mb-6">Available on Android and iOS</p>
+      <div class="flex flex-col sm:flex-row items-center justify-center">
+        <NuxtLink to="https://play.google.com/store/apps/details?id=at.friendsquest.app">
+          <img src="~/assets/svg/google-play-badge.svg" alt="Google Play Badge"
+               class="h-[50px] mb-4 sm:mb-0 mr-0 sm:mr-12">
+        </NuxtLink>
+        <NuxtLink to="https://apps.apple.com/at/app/friendsquest/id1667562544">
+          <img src="~/assets/svg/app-store-badge.svg" alt="App Store Badge" class="h-[50px]">
+        </NuxtLink>
+      </div>
+    </div>
   </main>
 </template>
 
