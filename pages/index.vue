@@ -81,16 +81,20 @@
           with your friends in the most unique way.
         </p>
       </div>
-      <div class="mt-24 mb-20 h-[10rem] relative">
+      <div class="mt-24 h-[10rem] relative">
         <div class="absolute left-[calc(50%-218px/2)]">
           <h3 ref="title" class="font-bold text-xl mb-3"></h3>
           <p ref="description" class="max-w-[450px]"></p>
         </div>
       </div>
       <div>
-          <div class="flex justify-center mx-auto max-w-[1256px] h-[498px] overflow-hidden">
+          <div
+              class="flex justify-center mx-auto max-w-[1256px] h-[calc(498px+6rem)] overflow-hidden relative
+              before:bg-gradient-to-r before:from-white before:h-[498px] before:w-16 before:absolute before:left-0
+              after:bg-gradient-to-l after:from-white after:h-[498px] after:w-16 after:absolute after:right-0"
+          >
               <div ref="slider" @scroll="handleScroll"
-                   class="flex items-center overflow-x-scroll hide-scrollbar snap-mandatory snap-x">
+                   class="flex items-center overflow-x-scroll scroll-smooth hide-scrollbar snap-mandatory snap-x mt-[-6rem]">
                 <client-only>
                   <div
                       class="w-[218px] h-[473px] flex snap-center shrink-0 mx-[3rem] first:ml-0 last:mr-0"
@@ -106,8 +110,25 @@
                   <img src="~/assets/svg/phone-frame.svg" alt="Phone Frame" width="366" height="729" class="absolute">
                 </div>
               </div>
-
           </div>
+        <div class="flex justify-center">
+          <button ref="slideIndicator" @click="handleClick" v-for="(image, index) in sliderImages" :key="index" :value="index"
+                  class="w-3 h-3 bg-gray-400 rounded-full mx-1"></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="bg-darkblue px-8 pt-20 pb-12 text-white">
+      <div class="mx-auto max-w-7xl mb-20">
+        <h2 class="text-3xl font-bold mb-6">Frequently Asked Questions</h2>
+        <p class="max-w-[550px]">
+          If you have anything else you want to ask, <a
+            class="underline" href="mailto:app.friendsquest@gmail.com">reach out to us</a>.
+        </p>
+      </div>
+      <div class="mx-auto max-w-7xl">
+        <FAQs/>
       </div>
     </section>
   </main>
@@ -116,10 +137,12 @@
 
 <script setup>
 import {ref, onMounted, onBeforeUnmount} from "vue";
+import FAQs from "../components/FAQs";
 
 const slider = ref()
 const title = ref()
 const description = ref()
+const slideIndicator = ref()
 
 const sliderImages = ref([
   new URL("@/assets/images/slider-1.png", import.meta.url),
@@ -150,8 +173,8 @@ const sliderText = [
   },
   {
     title: "Leave Auditory Memories",
-    text: "When capturing a memory, the two preceding seconds are also recorded and stored as sound sequences with" +
-        " your footprint. When you are too far away to open a footprint you can always listen to the sounds behind it."
+    text: "When capturing a memory, a short audio sequence is recorded as well. When you are too far away to " +
+        "open a footprint you can always listen to the sounds behind it."
   },
   {
     title: "React to Footprints",
@@ -171,6 +194,7 @@ const sliderText = [
 onMounted(() => {
   setSliderText(0)
   setSliderPadding()
+  setSlideIndicator(0)
   window.addEventListener("resize", setSliderPadding)
 })
 
@@ -190,11 +214,31 @@ function setSliderText(idx) {
   description.value.innerText = sliderText[idx].text
 }
 
+function setSlideIndicator(idx) {
+  const button = slideIndicator.value[idx]
+  button.style.backgroundColor = "rgba(175, 78, 33, 0.8)"
+
+  if(currentSlideIdx !== idx) {
+    const oldButton = slideIndicator.value[currentSlideIdx]
+    oldButton.style.backgroundColor = "rgb(156 163 175)"
+  }
+}
+
 function handleScroll(event) {
   const fromLeft = event.currentTarget.scrollLeft
   const newSlideIdx = Math.floor(fromLeft / (218 + 6 * 16))
-  currentSlideIdx = newSlideIdx
+
+  setSlideIndicator(newSlideIdx)
   setSliderText(newSlideIdx)
+
+  currentSlideIdx = newSlideIdx
+}
+
+function handleClick(event) {
+  const newSlideIdx = event.currentTarget.value
+
+  // scroll to new slide position
+  slider.value.scrollLeft = newSlideIdx * (218 + 6 * 16)
 }
 
 </script>

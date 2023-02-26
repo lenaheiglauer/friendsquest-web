@@ -11,10 +11,10 @@
               <NuxtLink to="#friendsquest" class="p-2">What is FriendsQuest?</NuxtLink>
             </li>
             <li>
-              <NuxtLink to="#" class="p-2 mx-4">FAQ</NuxtLink>
+              <NuxtLink to="#faq" class="p-2 mx-4">FAQ</NuxtLink>
             </li>
             <li>
-              <NuxtLink to="#" class="p-2">About Us</NuxtLink>
+              <NuxtLink to="#about" class="p-2">About Us</NuxtLink>
             </li>
           </ul>
         </nav>
