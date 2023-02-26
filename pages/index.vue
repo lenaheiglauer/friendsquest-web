@@ -104,7 +104,7 @@
     </section>
 
     <!-- About -->
-    <section id="about" class="px-8 pt-20 pb-12 max-w-7xl relative">
+    <section id="about" class="px-8 pt-20 pb-12 max-w-7xl relative overflow-hidden">
       <div class="absolute left-0 top-28">
         <svg width="1133" height="800" viewBox="0 0 1133 800" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M673.193 205.063L0 23V661.106L222.335 776L845.137 612.496L1113 63.213L673.193 205.063Z"
