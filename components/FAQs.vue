@@ -2,7 +2,7 @@
   <ul class="lg:columns-3 lg:gap-x-10">
     <li v-for="q in questions" class="inline-block mb-12 lg:mb-16">
       <h3 class="font-bold text-lg mb-2">{{ q.question }}</h3>
-      <p class="text max-w-screen-sm">{{ q.answer }}</p>
+      <p class="max-w-screen-sm">{{ q.answer }}</p>
     </li>
   </ul>
 </template>
