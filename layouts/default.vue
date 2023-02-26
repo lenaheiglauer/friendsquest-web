@@ -42,9 +42,9 @@
               style="width: 250px; height: 54px;" width="250" height="54"/></a>
         </div>
       </div>
-      <div class="flex justify-between items-center mx-8 xl:mx-auto pt-8 pb-12 max-w-[calc(80rem-4rem)] border-t-2 border-color-gray-400">
-        <p class="text-sm">© Copyright 2023. All rights reserved.</p>
-        <div>
+      <div class="flex flex-col-reverse sm:flex-row justify-between items-center mx-8 xl:mx-auto pt-8 pb-12 max-w-[calc(80rem-4rem)] border-t-2 border-color-gray-400">
+        <p class="text-sm text-gray-500">© Copyright 2023. All rights reserved.</p>
+        <div class="mb-6 sm:mb-0">
           <nuxt-link class="mr-4"
                      to="https://www.fh-salzburg.ac.at/en/imprint" target="_blank">Imprint
           </nuxt-link>
