@@ -57,16 +57,16 @@
             </svg>
           </div>
           <!-- Phone -->
-          <div class="aspect-[366/729] max-w-[250px] h-[498px] relative">
+          <div class="aspect-[360/730] max-w-[250px] h-[498px] relative">
             <div
-                class="absolute inset-y-[calc(1/729*100%)] right-[calc(5/729*100%)] left-[calc(7/729*100%)]
-                rounded-[calc(58/366*100%)/calc(58/729*100%)] shadow-2xl"></div>
+                class="absolute inset-y-[calc(1/730*100%)] right-[calc(5/730*100%)] left-[calc(7/730*100%)]
+                rounded-[calc(58/360*100%)/calc(58/730*100%)] shadow-2xl"></div>
             <div
-                class="absolute w-[calc(318/366*100%)] h-[calc(686/729*100%)] overflow-hidden
-                left-[calc(45/2/366*100%)] top-[calc(45/2/729*100%)]">
+                class="absolute w-[calc(318/360*100%)] h-[calc(686/730*100%)] overflow-hidden
+                left-[calc(45/2/360*100%)] top-[calc(45/2/730*100%)]">
               <img src="~/assets/images/header.png" alt="">
             </div>
-            <img src="~/assets/svg/phone-frame.svg" alt="Phone Frame" width="366" height="729" class="absolute">
+            <img src="~/assets/svg/iphone-14-frame.svg" alt="Phone Frame" width="360" height="730" class="absolute">
           </div>
         </div>
       </div>

@@ -18,13 +18,23 @@
           </div>
         </client-only>
         <!-- Phone -->
-        <div class="aspect-[366/729] max-w-[250px] h-[498px] absolute left-[calc(50%-246px/2)]">
+        <div class="aspect-[360/730] max-w-[250px] h-[498px] absolute left-[calc(50%-246px/2)]">
           <div
-              class="absolute inset-y-[calc(1/729*100%)] right-[calc(5/729*100%)] left-[calc(7/729*100%)]
-                rounded-[calc(58/366*100%)/calc(58/729*100%)] shadow-2xl"></div>
-          <img src="~/assets/svg/phone-frame.svg" alt="Phone Frame" width="366" height="729" class="absolute">
+              class="absolute inset-y-[calc(1/730*100%)] right-[calc(5/730*100%)] left-[calc(7/730*100%)]
+                rounded-[calc(58/360*100%)/calc(58/730*100%)] shadow-2xl"></div>
+          <img src="~/assets/svg/iphone-14-frame.svg" alt="Phone Frame" width="360" height="730" class="absolute">
         </div>
       </div>
+      <button ref="buttonToLeft" @click="handleClickLeft" class="absolute top-[calc(50%-4rem)] left-[calc(50%-(250px/7*5))]">
+        <svg xmlns="http://www.w3.org/2000/svg" height="48" viewBox="0 96 960 960" width="48">
+          <path d="M655 976 255 576l400-400 56 57-343 343 343 343-56 57Z"/>
+        </svg>
+      </button>
+      <button ref="buttonToRight" @click="handleClickRight" class="absolute top-[calc(50%-4rem)] right-[calc(50%-(250px/7*5))]">
+        <svg xmlns="http://www.w3.org/2000/svg" height="48" viewBox="0 96 960 960" width="48">
+          <path d="m304 974-56-57 343-343-343-343 56-57 400 400-400 400Z"/>
+        </svg>
+      </button>
     </div>
     <div class="flex justify-center">
       <button ref="slideIndicator" @click="handleClick" v-for="(image, index) in sliderImages" :key="index"
@@ -41,6 +51,8 @@
   const title = ref()
   const description = ref()
   const slideIndicator = ref()
+  const buttonToLeft = ref()
+  const buttonToRight = ref()
 
   const sliderImages = ref([
     new URL("@/assets/images/slider-1.png", import.meta.url),
@@ -92,6 +104,7 @@
   onMounted(() => {
     setSliderText(0)
     setSliderPadding()
+    setArrowButtonState(0)
     setSlideIndicator(0)
     window.addEventListener("resize", setSliderPadding)
   })
@@ -121,14 +134,42 @@
     }
   }
 
+  function setArrowButtonState(idx) {
+    if (idx === 0) {
+      buttonToLeft.value.style.display = "none"
+    }
+    else if (idx === sliderImages.value.length - 1) {
+      buttonToRight.value.style.display = "none"
+    }
+    else {
+      buttonToLeft.value.style.display = "block"
+      buttonToRight.value.style.display = "block"
+    }
+  }
+
   function handleScroll(event) {
     const fromLeft = event.currentTarget.scrollLeft
     const newSlideIdx = Math.floor(fromLeft / (218 + 6 * 16))
 
     setSlideIndicator(newSlideIdx)
     setSliderText(newSlideIdx)
+    setArrowButtonState(newSlideIdx)
 
     currentSlideIdx = newSlideIdx
+  }
+
+  function handleClickRight() {
+    const newSlideIdx = currentSlideIdx + 1
+
+    // scroll to new slide position
+    slider.value.scrollLeft = newSlideIdx * (218 + 6 * 16)
+  }
+
+  function handleClickLeft() {
+    const newSlideIdx = currentSlideIdx - 1
+
+    // scroll to new slide position
+    slider.value.scrollLeft = newSlideIdx * (218 + 6 * 16)
   }
 
   function handleClick(event) {
