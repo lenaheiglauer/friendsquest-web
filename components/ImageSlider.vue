@@ -1,20 +1,20 @@
 <template>
   <div class="mt-24 h-[10rem] relative">
-    <div class="absolute left-[calc(50%-218px/2)]">
+    <div class="absolute left-[calc(50%-220px/2)]">
       <h3 ref="title" class="font-bold text-xl mb-3"></h3>
       <p ref="description" class="max-w-[450px]"></p>
     </div>
   </div>
   <div>
-    <div class="flex justify-center mx-auto h-[calc(498px+6rem)] overflow-hidden relative">
+    <div class="flex justify-center mx-auto h-[calc(498px+4rem)] overflow-hidden relative">
       <div ref="slider" @scroll="handleScroll"
-           class="flex items-center overflow-x-scroll scroll-smooth hide-scrollbar snap-mandatory snap-x mt-[-6rem]">
+           class="flex items-center overflow-x-scroll scroll-smooth hide-scrollbar snap-mandatory snap-x mt-[-4rem]">
         <client-only>
           <div
-              class="w-[218px] h-[473px] flex snap-center shrink-0 mx-[3rem] first:ml-0 last:mr-0
-                      border border-solid border-gray-200"
+              class="w-[220px] h-[476px] flex snap-center shrink-0 mx-[3rem] first:ml-0 last:mr-0
+                      outline outline-1 outline-gray-200 rounded-lg"
               v-for="image in sliderImages" :key="image">
-            <img :src="image" alt="">
+            <img :src="image" alt="" class="rounded-md">
           </div>
         </client-only>
         <!-- Phone -->
@@ -77,7 +77,12 @@
       text: "Invite your friends to join the fun! More friends means more memories."
     },
     {
-      title: "Trace Your Friend's Footprints",
+      title: "Trace Other Footprints",
+      text: "Take a look at where your friends have left their footprints on the globe. Maybe you'll pass by some " +
+          "of them on your travels."
+    },
+    {
+      title: "Explore Your Friend's Footprints",
       text: "Visit the places where your friends left their footprints and open their memories to see whats behind " +
           "the footprints."
     },
@@ -85,10 +90,6 @@
       title: "Leave Auditory Memories",
       text: "When capturing a memory, a short audio sequence is recorded as well. When you are too far away to " +
           "open a footprint you can always listen to the sounds behind it."
-    },
-    {
-      title: "React to Footprints",
-      text: "Tell your friends you visited their footprints by leaving a comment or emoji."
     },
     {
       title: "Collect Points",
@@ -115,8 +116,8 @@
 
   function setSliderPadding() {
     const width = document.documentElement.clientWidth
-    slider.value.style.paddingLeft = width / 2 - 218 / 2 + "px"
-    slider.value.style.paddingRight = width / 2 - 218 / 2 + "px"
+    slider.value.style.paddingLeft = width / 2 - 220 / 2 + "px"
+    slider.value.style.paddingRight = width / 2 - 220 / 2 + "px"
   }
 
   function setSliderText(idx) {
@@ -149,7 +150,7 @@
 
   function handleScroll(event) {
     const fromLeft = event.currentTarget.scrollLeft
-    const newSlideIdx = Math.floor(fromLeft / (218 + 6 * 16))
+    const newSlideIdx = Math.floor(fromLeft / (220 + 6 * 16))
 
     setSlideIndicator(newSlideIdx)
     setSliderText(newSlideIdx)
@@ -162,21 +163,21 @@
     const newSlideIdx = currentSlideIdx + 1
 
     // scroll to new slide position
-    slider.value.scrollLeft = newSlideIdx * (218 + 6 * 16)
+    slider.value.scrollLeft = newSlideIdx * (220 + 6 * 16)
   }
 
   function handleClickLeft() {
     const newSlideIdx = currentSlideIdx - 1
 
     // scroll to new slide position
-    slider.value.scrollLeft = newSlideIdx * (218 + 6 * 16)
+    slider.value.scrollLeft = newSlideIdx * (220 + 6 * 16)
   }
 
   function handleClick(event) {
     const newSlideIdx = event.currentTarget.value
 
     // scroll to new slide position
-    slider.value.scrollLeft = newSlideIdx * (218 + 6 * 16)
+    slider.value.scrollLeft = newSlideIdx * (220 + 6 * 16)
   }
 </script>
 

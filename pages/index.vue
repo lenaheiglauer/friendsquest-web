@@ -62,8 +62,8 @@
                 class="absolute inset-y-[calc(1/730*100%)] right-[calc(5/730*100%)] left-[calc(7/730*100%)]
                 rounded-[calc(58/360*100%)/calc(58/730*100%)] shadow-2xl"></div>
             <div
-                class="absolute w-[calc(318/360*100%)] h-[calc(686/730*100%)] overflow-hidden
-                left-[calc(45/2/360*100%)] top-[calc(45/2/730*100%)]">
+                class="absolute w-[220px] h-[476px] overflow-hidden
+                left-[13px] top-[10px] rounded-lg">
               <img src="~/assets/images/header.png" alt="">
             </div>
             <img src="~/assets/svg/iphone-14-frame.svg" alt="Phone Frame" width="360" height="730" class="absolute">
