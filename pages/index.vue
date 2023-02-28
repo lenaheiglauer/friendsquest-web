@@ -5,7 +5,7 @@
       <div class="flex flex-col lg:grid lg:grid-cols-[8fr_5fr] gap-x-6 mx-auto max-w-7xl">
         <div class="z-10">
           <h1 class="text-6xl md:text-7xl leading-tight md:leading-tight font-bold mb-12">The Unique Travel Experience</h1>
-          <p class="mb-10 max-w-[550px]">
+          <p class="mb-10 max-w-[550px] text-base">
             With <strong>FriendsQuest</strong> you can travel the world and
             <strong>capture the most special moments</strong> as footprints on your globe.
           </p>
@@ -81,7 +81,7 @@
       </div>
       <div class="mx-auto max-w-7xl relative z-10 px-8">
         <h2 class="text-3xl font-bold mb-6">Travel, Share and Follow Footprints. Try It for Yourself.</h2>
-        <p class="max-w-[550px]">
+        <p class="max-w-[550px] text-base">
           Battle your friends in traveling around the world, find places you have never been before and share memories
           with your friends in the most unique way.
         </p>
@@ -93,7 +93,7 @@
     <section id="faq" class="bg-darkblue px-8 pt-20 pb-12 text-white">
       <div class="mx-auto max-w-7xl mb-20">
         <h2 class="text-3xl font-bold mb-6">Frequently Asked Questions</h2>
-        <p class="max-w-[550px]">
+        <p class="max-w-[550px] text-base">
           If you have anything else you want to ask, <a
             class="underline" href="mailto:app.friendsquest@gmail.com">reach out to us</a>.
         </p>
@@ -113,7 +113,7 @@
       </div>
       <div class="mx-auto mb-20 z-10 relative">
         <h2 class="text-3xl font-bold mb-6">About Us</h2>
-        <p class="max-w-[550px]">
+        <p class="max-w-[550px] text-base">
           We are four students who share the same passion - travel to unique places and share them with our friends. To
           make this experiences even more special and unique we built FriendsQuest.
         </p>
@@ -132,8 +132,8 @@
     </section>
 
     <div class="bg-terracotta80 px-8 py-16 text-center">
-      <h2 class="text-3xl font-bold leading-10 mb-12">Have Fun With FriendsQuest and Keep On Traveling!</h2>
-      <p class="font-bold mb-6">Available on Android and iOS</p>
+      <h2 class="text-3xl font-bold mb-12">Have Fun With FriendsQuest and Keep On Traveling!</h2>
+      <p class="font-bold mb-6 text-base">Available on Android and iOS</p>
       <div class="flex flex-col sm:flex-row items-center justify-center">
         <NuxtLink to="https://play.google.com/store/apps/details?id=at.friendsquest.app">
           <img src="~/assets/svg/google-play-badge.svg" alt="Google Play Badge"
