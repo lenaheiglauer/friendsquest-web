@@ -1,6 +1,6 @@
 <template>
   <div class="mt-24 h-[10rem] relative">
-    <div class="absolute left-[calc(50%-220px/2)]">
+    <div class="absolute left-8 sm:left-[calc(50%-220px/2)]">
       <h3 ref="title" class="font-bold text-xl mb-3"></h3>
       <p ref="description" class="max-w-[450px]"></p>
     </div>
