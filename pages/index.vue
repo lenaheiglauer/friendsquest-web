@@ -156,7 +156,7 @@ import {ref} from "vue";
 const team = ref([
   {
     name: "Julia Reisinger",
-    roles: "Design & Backend Development",
+    roles: "Frontend Development & Product Owner",
     image: new URL("@/assets/images/team-julia.png", import.meta.url)
   },
   {
@@ -166,7 +166,7 @@ const team = ref([
   },
   {
     name: "Jonas Pfannkuche",
-    roles: "Full Stack Development & Testing",
+    roles: "Backend Development, DevOps & Scrum Master",
     image: new URL("@/assets/images/team-julia.png", import.meta.url)
   },
   {
@@ -176,7 +176,7 @@ const team = ref([
   },
   {
     name: "Sabina Bauer",
-    roles: "Design",
+    roles: "Design & Concept",
     image: new URL("@/assets/images/team-julia.png", import.meta.url)
   }
 ])
