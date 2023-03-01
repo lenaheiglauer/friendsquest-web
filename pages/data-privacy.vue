@@ -5,7 +5,9 @@ export default {
 </script>
 
 <template>
-    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-10 sm:py-16">
+    <div
+        class="mx-auto max-w-4xl sm:mx-8 py-10 sm:py-16 border-b-2 border-color-gray-400 xl:mx-auto
+        max-w-[calc(80rem-4rem)]">
         <h1 class="text-4xl font-medium mb-8">Privacy Policy</h1>
         <p>Last updated: January 09, 2023</p>
         <p>This Privacy Policy describes Our policies and procedures on the collection, use and disclosure of Your
@@ -356,6 +358,7 @@ export default {
 <style scoped>
 p {
     margin-bottom: 0.75rem;
+    max-width: 48rem;
 }
 
 strong {
@@ -370,5 +373,6 @@ ul {
     margin-block-end: 1em;
     margin-inline-start: 0;
     margin-inline-end: 0;
+    max-width: 48rem;
 }
 </style>
