@@ -78,22 +78,32 @@
 
 <script setup>
 import {onMounted, ref} from "vue";
+import {useNuxtApp} from "nuxt/app";
 
-  const mobileNavButton = ref()
-  const mobileNav = ref()
-  const mobileNavCloseButton = ref()
+const mobileNavButton = ref()
+const mobileNav = ref()
+const mobileNavCloseButton = ref()
 
-  onMounted(() => {
-    mobileNav.value.style.display = "none"
-  })
 
-  function toggleMobileNav() {
-    if(mobileNav.value.style.display === "none") {
-      mobileNav.value.style.display = "flex"
-      document.body.style.overflow = "hidden"
-    } else {
-      mobileNav.value.style.display = "none"
-      document.body.style.overflow = "initial"
+onMounted(() => {
+  mobileNav.value.style.display = "none"
+
+  const {$bus} = useNuxtApp()
+  $bus.$on("changeSection", (id) => {
+    const hash = id === "" ? "/" : `/#${id}`
+    if (window.location.hash !== hash) {
+      history.pushState({}, window.title, hash)
     }
+  })
+})
+
+function toggleMobileNav() {
+  if(mobileNav.value.style.display === "none") {
+    mobileNav.value.style.display = "flex"
+    document.body.style.overflow = "hidden"
+  } else {
+    mobileNav.value.style.display = "none"
+    document.body.style.overflow = "initial"
   }
+}
 </script>

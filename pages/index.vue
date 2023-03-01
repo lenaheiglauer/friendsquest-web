@@ -1,7 +1,7 @@
 <template>
   <main>
     <!-- Landing -->
-    <section class="bg-terracotta80 overflow-hidden px-8 pt-12 md:pt-24 pb-12">
+    <section ref="sectionLanding" class="bg-terracotta80 overflow-hidden px-8 pt-12 md:pt-24 pb-12">
       <div class="flex flex-col lg:grid lg:grid-cols-[8fr_5fr] gap-x-6 mx-auto max-w-7xl">
         <div class="z-10">
           <h1 class="text-6xl md:text-7xl leading-tight md:leading-tight font-bold mb-12">The Unique Travel Experience</h1>
@@ -73,7 +73,7 @@
     </section>
 
     <!-- What is FriendsQuest -->
-    <section id="friendsquest" class="pt-20 pb-24 relative">
+    <section ref="sectionFriendsQuest" id="friendsquest" class="pt-20 pb-24 relative">
       <div class="absolute right-0 top-28">
         <svg width="957" height="800" viewBox="0 0 957 800" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M99 125.521L957 0V800L0 275.835L99 125.521Z" fill="#6AD3E5"/>
@@ -90,7 +90,7 @@
     </section>
 
     <!-- FAQ -->
-    <section id="faq" class="bg-darkblue px-8 pt-20 pb-12 text-white">
+    <section ref="sectionFAQ" id="faq" class="bg-darkblue px-8 pt-20 pb-12 text-white">
       <div class="mx-auto max-w-7xl mb-20">
         <h2 class="text-3xl font-bold mb-6">Frequently Asked Questions</h2>
         <p class="max-w-[550px] text-base">
@@ -104,7 +104,7 @@
     </section>
 
     <!-- About -->
-    <section id="about" class="px-8 pt-20 pb-12 max-w-7xl relative overflow-hidden">
+    <section ref="sectionAbout" id="about" class="px-8 pt-20 pb-12 max-w-7xl relative overflow-hidden">
       <div class="absolute left-0 top-28">
         <svg width="1133" height="800" viewBox="0 0 1133 800" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M673.193 205.063L0 23V661.106L222.335 776L845.137 612.496L1113 63.213L673.193 205.063Z"
@@ -151,7 +151,8 @@
 <script setup>
 import FAQs from "../components/FAQs";
 import ImageSlider from "../components/ImageSlider";
-import {ref} from "vue";
+import {onMounted, ref} from "vue";
+import {useNuxtApp} from "nuxt/app";
 
 const team = ref([
   {
@@ -180,6 +181,32 @@ const team = ref([
     image: new URL("@/assets/images/team-julia.png", import.meta.url)
   }
 ])
+
+const sectionLanding = ref()
+const sectionFriendsQuest = ref()
+const sectionFAQ = ref()
+const sectionAbout = ref()
+
+onMounted(() => {
+  const options = {
+    threshold: 0
+  }
+  const observer = new IntersectionObserver(onIntersect, options)
+  observer.observe(sectionLanding.value)
+  observer.observe(sectionFriendsQuest.value)
+  observer.observe(sectionFAQ.value)
+  observer.observe(sectionAbout.value)
+})
+
+function onIntersect(entries) {
+  const {$bus} = useNuxtApp()
+
+  entries.forEach((entry) => {
+    if(entry.isIntersecting) {
+      $bus.$emit("changeSection", entry.target.id)
+    }
+  })
+}
 
 </script>
 
