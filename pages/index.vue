@@ -190,7 +190,7 @@ const sectionAbout = ref()
 
 onMounted(() => {
   const options = {
-    threshold: 0
+    threshold: 0.5
   }
   const observer = new IntersectionObserver(onIntersect, options)
   observer.observe(sectionLanding.value)
