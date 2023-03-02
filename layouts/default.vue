@@ -1,11 +1,12 @@
 <template>
-    <header>
+    <header class="fixed w-full bg-white z-20 bottom-shadow">
       <div class="flex justify-between items-center pl-6 pr-10 py-4 max-w-7xl mx-auto">
         <NuxtLink to="/">
-          <img src="~/assets/svg/logo-text.svg" alt="FriendsQuest Logo" class="w-32">
+          <img ref="headerLogo" src="~/assets/svg/logo-text.svg" alt="FriendsQuest Logo"
+               class="w-32 transition-all duration-500">
         </NuxtLink>
         <nav class="hidden md:block">
-          <ul class="flex text-base">
+          <ul ref="headerLinkList" class="flex text-base">
             <li>
               <NuxtLink to="/#friendsquest"
                         class="relative pb-1 underline-animation hover:text-terracotta80 transition-all duration-500">
@@ -62,11 +63,13 @@ import Footer from "../components/Footer";
 const mobileNavButton = ref()
 const mobileNav = ref()
 const mobileNavCloseButton = ref()
-
+const headerLogo = ref()
+const headerLinkList = ref()
 
 onMounted(() => {
   mobileNav.value.style.display = "none"
 
+  // update browser url when scrolling between sections
   const {$bus} = useNuxtApp()
   $bus.$on("changeSection", (id) => {
     const hash = id === "" ? "/" : `/#${id}`
@@ -74,6 +77,9 @@ onMounted(() => {
       history.pushState({}, window.title, hash)
     }
   })
+
+  // resize header on scroll
+  window.onscroll = function() { resizeHeader() }
 })
 
 function toggleMobileNav() {
@@ -83,6 +89,16 @@ function toggleMobileNav() {
   } else {
     mobileNav.value.style.display = "none"
     document.body.style.overflow = "initial"
+  }
+}
+
+function resizeHeader() {
+  if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+    headerLogo.value.style.width = "6rem"
+    headerLinkList.value.style.fontSize = "1rem"
+  } else {
+    headerLogo.value.style.width = "8rem"
+    headerLinkList.value.style.fontSize = "1.125rem"
   }
 }
 </script>
@@ -104,5 +120,9 @@ function toggleMobileNav() {
   .underline-animation:hover:before {
     transform-origin: left;
     transform: scaleX(1);
+  }
+
+  .bottom-shadow {
+    box-shadow: -5px 1px 10px rgb(0 0 0 / 0.125);
   }
 </style>

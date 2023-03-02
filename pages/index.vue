@@ -1,5 +1,5 @@
 <template>
-  <main>
+  <main class="pt-[6.25rem]">
     <!-- Landing -->
     <section ref="sectionLanding" class="bg-terracotta80 overflow-hidden px-8 pt-12 md:pt-24 pb-12">
       <div class="flex flex-col lg:grid lg:grid-cols-[8fr_5fr] gap-x-6 mx-auto max-w-7xl">
