@@ -21,10 +21,10 @@
         max-w-[calc(80rem-4rem)] border-t-2 border-color-gray-400">
       <p class="text-sm text-gray-500">© Copyright 2023. All rights reserved.</p>
       <div class="mb-6 sm:mb-0">
-        <nuxt-link class="mr-4 text-base"
+        <nuxt-link class="mr-8 text-sm underline text-gray-500 transition-all duration-500 hover:text-black"
                    to="https://www.fh-salzburg.ac.at/en/imprint" target="_blank">Imprint
         </nuxt-link>
-        <nuxt-link class=" text-base"
+        <nuxt-link class="text-sm underline text-gray-500 transition-all duration-500 hover:text-black"
                    to="/data-privacy">Privacy Policy
         </nuxt-link>
       </div>

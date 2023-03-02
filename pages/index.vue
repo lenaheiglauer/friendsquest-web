@@ -95,7 +95,8 @@
         <h2 class="text-3xl font-bold mb-6">Frequently Asked Questions</h2>
         <p class="max-w-[550px] text-base">
           If you have anything else you want to ask, <a
-            class="underline" href="mailto:app.friendsquest@gmail.com">reach out to us</a>.
+            class="underline text-white transition-all duration-500 hover:text-terracotta80"
+            href="mailto:app.friendsquest@gmail.com">reach out to us</a>.
         </p>
       </div>
       <div class="mx-auto max-w-7xl">

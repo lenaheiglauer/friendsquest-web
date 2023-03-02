@@ -1,19 +1,28 @@
 <template>
     <header>
-      <div class="flex justify-between items-center px-6 py-4 max-w-7xl mx-auto">
+      <div class="flex justify-between items-center pl-6 pr-10 py-4 max-w-7xl mx-auto">
         <NuxtLink to="/">
           <img src="~/assets/svg/logo-text.svg" alt="FriendsQuest Logo" class="w-32">
         </NuxtLink>
         <nav class="hidden md:block">
           <ul class="flex text-base">
             <li>
-              <NuxtLink to="/#friendsquest" class="p-2">What is FriendsQuest?</NuxtLink>
+              <NuxtLink to="/#friendsquest"
+                        class="relative pb-1 underline-animation hover:text-terracotta80 transition-all duration-500">
+                What is FriendsQuest?
+              </NuxtLink>
+            </li>
+            <li class="mx-8 ">
+              <NuxtLink to="/#faq"
+                        class="relative pb-1 underline-animation hover:text-terracotta80 transition-all duration-500">
+                FAQ
+              </NuxtLink>
             </li>
             <li>
-              <NuxtLink to="/#faq" class="p-2 mx-8">FAQ</NuxtLink>
-            </li>
-            <li>
-              <NuxtLink to="/#about" class="p-2">About Us</NuxtLink>
+              <NuxtLink to="/#about"
+                        class="relative pb-1 underline-animation hover:text-terracotta80 transition-all duration-500">
+                About Us
+              </NuxtLink>
             </li>
           </ul>
         </nav>
@@ -39,7 +48,6 @@
         </ul>
       </nav>
     </div>
-
 
     <slot/>
 
@@ -78,3 +86,23 @@ function toggleMobileNav() {
   }
 }
 </script>
+
+<style>
+  .underline-animation:before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 0.125rem;
+    background-color: #BF714D;
+    bottom: 0;
+    left: 0;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform .3s ease-in-out;
+  }
+
+  .underline-animation:hover:before {
+    transform-origin: left;
+    transform: scaleX(1);
+  }
+</style>
