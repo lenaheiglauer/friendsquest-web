@@ -157,29 +157,29 @@ import {useNuxtApp} from "nuxt/app";
 
 const team = ref([
   {
+    name: "Elias Burgstaller",
+    roles: "Concept & Frontend Development",
+    image: new URL("@/assets/images/team-elias.png", import.meta.url)
+  },
+  {
     name: "Julia Reisinger",
     roles: "Frontend Development & Product Owner",
     image: new URL("@/assets/images/team-julia.png", import.meta.url)
   },
   {
-    name: "Elias Burgstaller",
-    roles: "Concept & Frontend Development",
-    image: new URL("@/assets/images/team-julia.png", import.meta.url)
-  },
-  {
     name: "Jonas Pfannkuche",
     roles: "Backend Development, DevOps & Scrum Master",
-    image: new URL("@/assets/images/team-julia.png", import.meta.url)
+    image: new URL("@/assets/images/team-jonas.png", import.meta.url)
   },
   {
     name: "Markus Almasy",
     roles: "Backend Development & Testing",
-    image: new URL("@/assets/images/team-julia.png", import.meta.url)
+    image: new URL("@/assets/images/team-markus.png", import.meta.url)
   },
   {
     name: "Sabina Bauer",
     roles: "Design & Concept",
-    image: new URL("@/assets/images/team-julia.png", import.meta.url)
+    image: new URL("@/assets/images/team-sabina.png", import.meta.url)
   }
 ])
 
