@@ -53,7 +53,7 @@ const headerLinkList = ref()
 const navLinks = [
     {
       id: "friendsquest",
-      text: "What is FriendsQuest?"
+      text: "What Is FriendsQuest?"
     },
     {
       id: "faq",
