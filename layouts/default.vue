@@ -1,6 +1,6 @@
 <template>
-    <header class="fixed top-0 w-full bg-white z-20 bottom-shadow">
-      <div class="flex justify-between items-center pl-6 pr-10 py-4 max-w-7xl mx-auto">
+    <header class="fixed top-0 w-full bg-white z-20 bottom-shadow pl-8 pr-10 py-4 ">
+      <div class="flex justify-between items-center max-w-7xl mx-auto">
         <NuxtLink to="/">
           <img ref="headerLogo" src="~/assets/svg/logo-text.svg" alt="FriendsQuest Logo"
                class="w-32 transition-all duration-500">
