@@ -7,7 +7,7 @@ export default {
 <template>
   <main class="pt-[6.25rem]">
     <div
-        class="mx-auto max-w-4xl mx-4 sm:mx-8 py-10 sm:py-16 border-b-2 border-color-gray-400 xl:mx-auto
+        class="mx-auto max-w-4xl px-4 sm:px-8 py-10 sm:py-16 border-b-2 border-color-gray-400 xl:mx-auto
         max-w-[calc(80rem-4rem)]">
       <h1 class="text-4xl font-medium mb-8">Privacy Policy</h1>
       <p>Last updated: January 09, 2023</p>
