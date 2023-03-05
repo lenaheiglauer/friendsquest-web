@@ -1,8 +1,13 @@
-# Nuxt 3 Minimal Starter
+# FriendsQuest - Website
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+A website for the app "FriendsQuest" built with [Nuxt 3](https://nuxt.com/).  
+The live version can be found [here](https://friendsquest-web.netlify.app/).
 
-## Setup
+## Getting Started
+
+Use the following instructions to get the project up and running on your local machine.
+
+### Setup
 
 Make sure to install the dependencies:
 
@@ -17,7 +22,7 @@ npm install
 pnpm install
 ```
 
-## Development Server
+### Development Server
 
 Start the development server on http://localhost:3000
 
@@ -25,7 +30,7 @@ Start the development server on http://localhost:3000
 npm run dev
 ```
 
-## Production
+### Production
 
 Build the application for production:
 
