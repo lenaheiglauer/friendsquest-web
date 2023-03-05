@@ -80,7 +80,7 @@
           <path d="M99 125.521L957 0V800L0 275.835L99 125.521Z" fill="#6AD3E5"/>
         </svg>
       </div>
-      <div class="mx-auto max-w-7xl relative z-10 px-4 sm:px-8">
+      <div class="mx-auto max-w-7xl relative z-10 px-4 sm:px-8 xl:px-0">
         <h2 class="text-3xl font-bold mb-6">Travel, Share and Follow Footprints. Try It for Yourself.</h2>
         <p class="max-w-[550px] text-base">
           Battle your friends in traveling around the world, find places you have never been before and share memories
@@ -106,22 +106,22 @@
     </section>
 
     <!-- About -->
-    <section ref="sectionAbout" id="about" class="px-4 sm:px-8 pt-20 pb-12 max-w-7xl scroll-mt-20 relative overflow-hidden">
+    <section ref="sectionAbout" id="about" class="px-4 sm:px-8 pt-20 pb-12 scroll-mt-20 relative overflow-hidden">
       <div class="absolute left-0 top-28">
         <svg width="1133" height="800" viewBox="0 0 1133 800" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M673.193 205.063L0 23V661.106L222.335 776L845.137 612.496L1113 63.213L673.193 205.063Z"
                 fill="#6AD3E5"/>
         </svg>
       </div>
-      <div class="mx-auto mb-20 z-10 relative">
+      <div class="mx-auto mb-20 z-10 relative max-w-7xl">
         <h2 class="text-3xl font-bold mb-6">About Us</h2>
         <p class="max-w-[550px] text-base">
           We are four students who share the same passion - travel to unique places and share them with our friends. To
           make this experiences even more special and unique we built FriendsQuest.
         </p>
       </div>
-      <div class="z-10 relative">
-        <ul class="flex flex-wrap justify-center gap-x-16">
+      <div class="z-10 relative max-w-7xl mx-auto">
+        <ul class="flex flex-wrap justify-center gap-x-24">
           <li v-for="member in team" :key="member.name" class="w-[270px] mb-20 text-center">
             <client-only>
               <img :src="member.image" alt="">
