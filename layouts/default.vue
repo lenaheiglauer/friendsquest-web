@@ -21,20 +21,14 @@
       </div>
     </header>
     <!-- Mobile Navigation -->
-    <div ref="mobileNav" class="hidden absolute top-0 h-screen w-full z-20 bg-terracotta80 flex-col">
-      <button ref="mobileNavCloseButton" @click="toggleMobileNav" class="absolute right-6 top-[2.375rem] text-base">
+    <div ref="mobileNav" class="hidden fixed top-0 h-screen w-full z-20 bg-terracotta80 flex-col">
+      <button ref="mobileNavCloseButton" @click="toggleMobileNav" class="absolute right-10 top-[2.375rem] text-base">
         Close
       </button>
       <nav class="pt-48 pb-16 px-6">
         <ul class="flex flex-col gap-y-8 items-center text-center">
-          <li>
-            <NuxtLink @click="toggleMobileNav" to="/#friendsquest" class="py-4 text-2xl">What is FriendsQuest?</NuxtLink>
-          </li>
-          <li>
-            <NuxtLink @click="toggleMobileNav" to="/#faq" class="py-4 text-2xl">FAQ</NuxtLink>
-          </li>
-          <li>
-            <NuxtLink @click="toggleMobileNav" to="/#about" class="py-4 text-2xl">About Us</NuxtLink>
+          <li v-for="link in navLinks" :key="link.id">
+            <NuxtLink :to="`#${link.id}`" @click="toggleMobileNav" class="py-4 text-2xl">{{ link.text }}</NuxtLink>
           </li>
         </ul>
       </nav>
