@@ -1,7 +1,7 @@
 <template>
   <main>
     <!-- Landing -->
-    <section ref="sectionLanding" class="bg-terracotta80 overflow-hidden px-8 pt-[9.25rem] md:pt-24 pb-12">
+    <section ref="sectionLanding" class="bg-terracotta80 overflow-hidden px-8 pt-[9.25rem] md:pt-[11.25rem] pb-16">
       <div class="flex flex-col lg:grid lg:grid-cols-[8fr_5fr] gap-x-6 mx-auto max-w-7xl">
         <div class="z-10">
           <h1 class="text-6xl md:text-7xl leading-tight md:leading-tight font-bold mb-12">The Unique Travel Experience</h1>
@@ -9,12 +9,13 @@
             With <strong>FriendsQuest</strong> you can travel the world and
             <strong>capture the most special moments</strong> as footprints on your globe.
           </p>
-          <div class="grid grid-cols-[repeat(2,_minmax(0,_160px))] gap-x-6">
+          <div class="flex flex-wrap flex-row items-center gap-y-6 gap-x-9">
             <NuxtLink to="https://play.google.com/store/apps/details?id=at.friendsquest.app">
-              <img src="~/assets/svg/google-play-badge.svg" alt="Google Play Badge" class="w-full max-w-[160px]">
+              <img src="~/assets/svg/google-play-badge.svg" alt="Google Play Badge"
+                   class="h-[50px]">
             </NuxtLink>
             <NuxtLink to="https://apps.apple.com/at/app/friendsquest/id1667562544">
-              <img src="~/assets/svg/app-store-badge.svg" alt="App Store Badge" class="w-full max-w-[160px]">
+              <img src="~/assets/svg/app-store-badge.svg" alt="App Store Badge" class="h-[50px]">
             </NuxtLink>
           </div>
         </div>
@@ -155,7 +156,7 @@ import ImageSlider from "../components/ImageSlider";
 import {onMounted, ref} from "vue";
 import {useNuxtApp} from "nuxt/app";
 
-const team = ref([
+const team = [
   {
     name: "Elias Burgstaller",
     roles: "Concept & Frontend Development",
@@ -181,7 +182,7 @@ const team = ref([
     roles: "Design & Concept",
     image: new URL("@/assets/images/team-sabina.png", import.meta.url)
   }
-])
+]
 
 const sectionLanding = ref()
 const sectionFriendsQuest = ref()

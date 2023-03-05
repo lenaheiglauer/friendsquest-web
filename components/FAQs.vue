@@ -1,6 +1,6 @@
 <template>
   <ul class="lg:columns-3 lg:gap-x-10">
-    <li v-for="q in questions" class="inline-block mb-12 lg:mb-16">
+    <li v-for="q in questions" class="inline-block w-full mb-12 lg:mb-16">
       <h3 class="font-bold text-lg mb-2">{{ q.question }}</h3>
       <p class="max-w-screen-sm text-sm">{{ q.answer }}</p>
     </li>
@@ -8,9 +8,7 @@
 </template>
 
 <script setup>
-import {ref} from "vue";
-
-const questions = ref([
+const questions = [
   {
     question: "What is the purpose of the app?",
     answer: "The app allows you to create digital footprints, which are combinations of an image and audio that " +
@@ -56,7 +54,7 @@ const questions = ref([
         "completing certain tasks. The best way to know how to receive points is to try it out. Wouldn't it be " +
         "boring if we just tell you how to get points? It's like revealing a magic trick. You don't do that ;) "
   }
-])
+]
 
 </script>
 
