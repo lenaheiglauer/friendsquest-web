@@ -1,5 +1,5 @@
 <template>
-    <header class="fixed w-full bg-white z-20 bottom-shadow">
+    <header class="fixed top-0 w-full bg-white z-20 bottom-shadow">
       <div class="flex justify-between items-center pl-6 pr-10 py-4 max-w-7xl mx-auto">
         <NuxtLink to="/">
           <img ref="headerLogo" src="~/assets/svg/logo-text.svg" alt="FriendsQuest Logo"
@@ -7,22 +7,12 @@
         </NuxtLink>
         <nav class="hidden md:block">
           <ul ref="headerLinkList" class="flex text-base">
-            <li>
-              <NuxtLink to="/#friendsquest"
-                        class="relative pb-1 underline-animation hover:text-terracotta80 transition-all duration-500">
-                What is FriendsQuest?
-              </NuxtLink>
-            </li>
-            <li class="mx-8 ">
-              <NuxtLink to="/#faq"
-                        class="relative pb-1 underline-animation hover:text-terracotta80 transition-all duration-500">
-                FAQ
-              </NuxtLink>
-            </li>
-            <li>
-              <NuxtLink to="/#about"
-                        class="relative pb-1 underline-animation hover:text-terracotta80 transition-all duration-500">
-                About Us
+            <li v-for="link in navLinks" :key="link.id" class="mx-6">
+              <NuxtLink :to="`#${link.id}`"
+                        class="relative pb-1 underline-animation hover:text-terracotta80 transition-all duration-500"
+                        :class="{'text-terracotta80 underline-active': link.id === currentlyActiveLink}"
+              >
+                {{ link.text }}
               </NuxtLink>
             </li>
           </ul>
@@ -66,6 +56,23 @@ const mobileNavCloseButton = ref()
 const headerLogo = ref()
 const headerLinkList = ref()
 
+const navLinks = [
+    {
+      id: "friendsquest",
+      text: "What is FriendsQuest?"
+    },
+    {
+      id: "faq",
+      text: "FAQ"
+    },
+    {
+      id: "about",
+      text: "About Us"
+    }
+]
+
+let currentlyActiveLink = ref("")
+
 onMounted(() => {
   mobileNav.value.style.display = "none"
 
@@ -75,6 +82,7 @@ onMounted(() => {
     const hash = id === "" ? "/" : `/#${id}`
     if (window.location.hash !== hash) {
       history.pushState({}, window.title, hash)
+      currentlyActiveLink.value = id
     }
   })
 
@@ -104,6 +112,10 @@ function resizeHeader() {
 </script>
 
 <style>
+  html {
+    scroll-behavior: smooth;
+  }
+
   .underline-animation:before {
     content: "";
     position: absolute;
@@ -120,6 +132,18 @@ function resizeHeader() {
   .underline-animation:hover:before {
     transform-origin: left;
     transform: scaleX(1);
+  }
+
+  .underline-active:before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 0.125rem;
+    background-color: #BF714D;
+    bottom: 0;
+    left: 0;
+    transform-origin: left;
+    transform: scaleX(1)
   }
 
   .bottom-shadow {
