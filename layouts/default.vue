@@ -68,16 +68,23 @@ const navLinks = [
 let currentlyActiveLink = ref("")
 
 onMounted(() => {
+  const {$bus} = useNuxtApp()
+
+  // hide mobile navigation
   mobileNav.value.style.display = "none"
 
   // update browser url when scrolling between sections
-  const {$bus} = useNuxtApp()
   $bus.$on("changeSection", (id) => {
     const hash = id === "" ? "/" : `/#${id}`
     if (window.location.hash !== hash) {
       history.pushState({}, window.title, hash)
       currentlyActiveLink.value = id
     }
+  })
+
+  // reset active link when navigating to a different page (e.g. data-policy)
+  $bus.$on("resetActiveLink", () => {
+    currentlyActiveLink.value = ""
   })
 
   // resize header on scroll

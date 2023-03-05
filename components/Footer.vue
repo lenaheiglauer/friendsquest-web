@@ -25,15 +25,18 @@
                    to="https://www.fh-salzburg.ac.at/en/imprint" target="_blank">Imprint
         </nuxt-link>
         <nuxt-link class="text-sm underline text-gray-500 transition-all duration-500 hover:text-black"
-                   to="/data-privacy">Privacy Policy
+                   to="/data-privacy" @click="emitUrlChange">Privacy Policy
         </nuxt-link>
       </div>
     </div>
   </footer>
 </template>
 
-<script>
-export default {
-  name: "Footer"
+<script setup>
+import {useNuxtApp} from "nuxt/app";
+
+function emitUrlChange() {
+  const {$bus} = useNuxtApp()
+  $bus.$emit("resetActiveLink")
 }
 </script>
