@@ -1,6 +1,6 @@
 <template>
   <footer>
-    <div class="flex justify-between items-center flex-col sm:flex-row px-8 py-12 max-w-7xl mx-auto">
+    <div class="flex justify-between items-center flex-col sm:flex-row px-4 sm:px-8 py-12 max-w-7xl mx-auto">
       <div class="flex items-center mb-12 sm:mb-0">
         <img src="~/assets/svg/logo.svg" alt="FriendsQuest Logo" class="h-20 mr-4">
         <div>
@@ -17,7 +17,7 @@
       </div>
     </div>
     <div
-        class="flex flex-col-reverse sm:flex-row justify-between items-center mx-8 xl:mx-auto pt-8 pb-12
+        class="flex flex-col-reverse sm:flex-row justify-between items-center mx-4 sm:mx-8 xl:mx-auto pt-8 pb-12
         max-w-[calc(80rem-4rem)] border-t-2 border-color-gray-400">
       <p class="text-sm text-gray-500">© Copyright 2023. All rights reserved.</p>
       <div class="mb-6 sm:mb-0">

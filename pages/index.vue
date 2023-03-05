@@ -1,7 +1,7 @@
 <template>
   <main>
     <!-- Landing -->
-    <section ref="sectionLanding" class="bg-terracotta80 overflow-hidden px-8 pt-[9.25rem] md:pt-[11.25rem] pb-16">
+    <section ref="sectionLanding" class="bg-terracotta80 overflow-hidden px-4 sm:px-8 pt-[9.25rem] md:pt-[11.25rem] pb-16">
       <div class="flex flex-col lg:grid lg:grid-cols-[8fr_5fr] gap-x-6 mx-auto max-w-7xl">
         <div class="z-10">
           <h1 class="text-6xl md:text-7xl leading-tight md:leading-tight font-bold mb-12">The Unique Travel Experience</h1>
@@ -80,7 +80,7 @@
           <path d="M99 125.521L957 0V800L0 275.835L99 125.521Z" fill="#6AD3E5"/>
         </svg>
       </div>
-      <div class="mx-auto max-w-7xl relative z-10 px-8">
+      <div class="mx-auto max-w-7xl relative z-10 px-4 sm:px-8">
         <h2 class="text-3xl font-bold mb-6">Travel, Share and Follow Footprints. Try It for Yourself.</h2>
         <p class="max-w-[550px] text-base">
           Battle your friends in traveling around the world, find places you have never been before and share memories
@@ -91,7 +91,7 @@
     </section>
 
     <!-- FAQ -->
-    <section ref="sectionFAQ" id="faq" class="bg-darkblue px-8 pt-20 pb-12 scroll-mt-20 text-white">
+    <section ref="sectionFAQ" id="faq" class="bg-darkblue px-4 sm:px-8 pt-20 pb-12 scroll-mt-20 text-white">
       <div class="mx-auto max-w-7xl mb-20">
         <h2 class="text-3xl font-bold mb-6">Frequently Asked Questions</h2>
         <p class="max-w-[550px] text-base">
@@ -106,7 +106,7 @@
     </section>
 
     <!-- About -->
-    <section ref="sectionAbout" id="about" class="px-8 pt-20 pb-12 max-w-7xl scroll-mt-20 relative overflow-hidden">
+    <section ref="sectionAbout" id="about" class="px-4 sm:px-8 pt-20 pb-12 max-w-7xl scroll-mt-20 relative overflow-hidden">
       <div class="absolute left-0 top-28">
         <svg width="1133" height="800" viewBox="0 0 1133 800" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M673.193 205.063L0 23V661.106L222.335 776L845.137 612.496L1113 63.213L673.193 205.063Z"
@@ -133,7 +133,7 @@
       </div>
     </section>
 
-    <div class="bg-terracotta80 px-8 py-16 text-center">
+    <div class="bg-terracotta80 px-4 sm:px-8 py-16 text-center">
       <h2 class="text-3xl font-bold mb-12">Have Fun With FriendsQuest and Keep On Traveling!</h2>
       <p class="font-bold mb-6 text-base">Available on Android and iOS</p>
       <div class="flex flex-col sm:flex-row items-center justify-center">
@@ -191,7 +191,7 @@ const sectionAbout = ref()
 
 onMounted(() => {
   const options = {
-    threshold: 0.5
+    threshold: 0.3
   }
   const observer = new IntersectionObserver(onIntersect, options)
   observer.observe(sectionLanding.value)

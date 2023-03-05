@@ -1,5 +1,5 @@
 <template>
-    <header class="fixed top-0 w-full bg-white z-20 bottom-shadow pl-8 pr-10 py-4 ">
+    <header class="fixed top-0 w-full bg-white z-20 bottom-shadow pl-4 sm:pl-8 pr-6 sm:pr-10 py-4">
       <div class="flex justify-between items-center max-w-7xl mx-auto">
         <NuxtLink to="/">
           <img ref="headerLogo" src="~/assets/svg/logo-text.svg" alt="FriendsQuest Logo"
@@ -22,11 +22,14 @@
     </header>
     <!-- Mobile Navigation -->
     <div ref="mobileNav" class="hidden fixed top-0 h-screen w-full z-20 bg-terracotta80 flex-col">
-      <button ref="mobileNavCloseButton" @click="toggleMobileNav" class="absolute right-10 top-[2.375rem] text-base">
+      <button ref="mobileNavCloseButton" @click="toggleMobileNav" class="absolute right-6 sm:right-10 top-[2.375rem] text-base">
         Close
       </button>
       <nav class="pt-48 pb-16 px-6">
         <ul class="flex flex-col gap-y-8 items-center text-center">
+          <li>
+            <NuxtLink to="/" @click="toggleMobileNav" class="py-4 text-2xl">Home</NuxtLink>
+          </li>
           <li v-for="link in navLinks" :key="link.id">
             <NuxtLink :to="`#${link.id}`" @click="toggleMobileNav" class="py-4 text-2xl">{{ link.text }}</NuxtLink>
           </li>
