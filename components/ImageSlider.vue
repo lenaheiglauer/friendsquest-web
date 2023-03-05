@@ -54,7 +54,7 @@
   const buttonToLeft = ref()
   const buttonToRight = ref()
 
-  const sliderImages = ref([
+  const sliderImages = [
     new URL("@/assets/images/slider-1.png", import.meta.url),
     new URL("@/assets/images/slider-2.png", import.meta.url),
     new URL("@/assets/images/slider-3.png", import.meta.url),
@@ -62,7 +62,7 @@
     new URL("@/assets/images/slider-5.png", import.meta.url),
     new URL("@/assets/images/slider-6.png", import.meta.url),
     new URL("@/assets/images/slider-7.png", import.meta.url),
-  ])
+  ]
 
   let currentSlideIdx = 0
 
@@ -139,7 +139,7 @@
     if (idx === 0) {
       buttonToLeft.value.style.display = "none"
     }
-    else if (idx === sliderImages.value.length - 1) {
+    else if (idx === sliderImages.length - 1) {
       buttonToRight.value.style.display = "none"
     }
     else {
