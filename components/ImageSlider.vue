@@ -1,24 +1,24 @@
 <template>
-  <div class="mt-24 h-[10rem] relative">
-    <div class="absolute left-8 sm:left-[calc(50%-220px/2)]">
+  <div class="mt-20 h-36 relative">
+    <div class="absolute left-4 sm:left-[calc(50%-209px/2)]">
       <h3 ref="title" class="font-bold text-xl mb-3"></h3>
       <p ref="description" class="max-w-[450px] text-sm"></p>
     </div>
   </div>
   <div>
-    <div class="flex justify-center mx-auto h-[calc(498px+4rem)] overflow-hidden relative">
+    <div class="flex justify-center mx-auto h-[calc(462px+3rem)] overflow-hidden relative">
       <div ref="slider" @scroll="handleScroll"
-           class="flex items-center overflow-x-scroll scroll-smooth hide-scrollbar snap-mandatory snap-x mt-[-4rem]">
+           class="flex items-center overflow-x-scroll scroll-smooth hide-scrollbar snap-mandatory snap-x mt-[-3rem]">
         <client-only>
           <div
-              class="w-[220px] h-[476px] flex snap-center shrink-0 mx-[3rem] first:ml-0 last:mr-0
+              class="w-[203px] h-[calc(462px-22px)] flex justify-center snap-center shrink-0 mx-[3rem] first:ml-0 last:mr-0
                       outline outline-1 outline-gray-200 rounded-lg"
               v-for="image in sliderImages" :key="image">
             <img :src="image" alt="" class="rounded-md">
           </div>
         </client-only>
         <!-- Phone -->
-        <div class="aspect-[360/730] max-w-[250px] h-[498px] absolute left-[calc(50%-246px/2)]">
+        <div class="aspect-[360/730] h-[462px] absolute left-[calc(50%-228px/2)]">
           <div
               class="absolute inset-y-[calc(1/730*100%)] right-[calc(5/730*100%)] left-[calc(7/730*100%)]
                 rounded-[calc(58/360*100%)/calc(58/730*100%)] shadow-2xl"></div>
@@ -116,8 +116,8 @@
 
   function setSliderPadding() {
     const width = document.documentElement.clientWidth
-    slider.value.style.paddingLeft = width / 2 - 220 / 2 + "px"
-    slider.value.style.paddingRight = width / 2 - 220 / 2 + "px"
+    slider.value.style.paddingLeft = width / 2 - 203 / 2 + "px"
+    slider.value.style.paddingRight = width / 2 - 203 / 2 + "px"
   }
 
   function setSliderText(idx) {
@@ -150,7 +150,7 @@
 
   function handleScroll(event) {
     const fromLeft = event.currentTarget.scrollLeft
-    const newSlideIdx = Math.floor(fromLeft / (220 + 6 * 16))
+    const newSlideIdx = Math.floor(fromLeft / (203 + 6 * 16))
 
     setSlideIndicator(newSlideIdx)
     setSliderText(newSlideIdx)
@@ -163,21 +163,21 @@
     const newSlideIdx = currentSlideIdx + 1
 
     // scroll to new slide position
-    slider.value.scrollLeft = newSlideIdx * (220 + 6 * 16)
+    slider.value.scrollLeft = newSlideIdx * (203 + 6 * 16)
   }
 
   function handleClickLeft() {
     const newSlideIdx = currentSlideIdx - 1
 
     // scroll to new slide position
-    slider.value.scrollLeft = newSlideIdx * (220 + 6 * 16)
+    slider.value.scrollLeft = newSlideIdx * (203 + 6 * 16)
   }
 
   function handleClick(event) {
     const newSlideIdx = event.currentTarget.value
 
     // scroll to new slide position
-    slider.value.scrollLeft = newSlideIdx * (220 + 6 * 16)
+    slider.value.scrollLeft = newSlideIdx * (203 + 6 * 16)
   }
 </script>
 
