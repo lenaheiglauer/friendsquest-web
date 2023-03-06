@@ -1,7 +1,7 @@
 <template>
     <header class="fixed top-0 w-full bg-white z-20 bottom-shadow pl-4 sm:pl-8 pr-6 sm:pr-10 py-4">
       <div class="flex justify-between items-center max-w-7xl mx-auto">
-        <NuxtLink to="/">
+        <NuxtLink to="/" @click="scrollToTop">
           <img ref="headerLogo" src="~/assets/svg/logo-text.svg" alt="FriendsQuest Logo"
                class="w-32 transition-all duration-500">
         </NuxtLink>
@@ -112,6 +112,10 @@ function resizeHeader() {
     headerLogo.value.style.width = "8rem"
     headerLinkList.value.style.fontSize = "1.125rem"
   }
+}
+
+function scrollToTop() {
+  window.scrollTo(0, 0)
 }
 </script>
 
