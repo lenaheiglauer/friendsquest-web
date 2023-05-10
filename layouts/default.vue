@@ -17,13 +17,19 @@
             </li>
           </ul>
         </nav>
-        <button ref="mobileNavButton" @click="toggleMobileNav" class="block md:hidden text-base">Menu</button>
+        <button ref="mobileNavButton" @click="toggleMobileNav" class="block md:hidden text-base w-10 burger-icon">
+          <span/>
+          <span/>
+          <span/>
+        </button>
       </div>
     </header>
     <!-- Mobile Navigation -->
     <div ref="mobileNav" class="hidden fixed top-0 h-screen w-full z-20 bg-terracotta80 flex-col">
-      <button ref="mobileNavCloseButton" @click="toggleMobileNav" class="absolute right-6 sm:right-10 top-[2.375rem] text-base">
-        Close
+      <button ref="mobileNavCloseButton" @click="toggleMobileNav"
+              class="absolute right-6 sm:right-10 top-[2rem] text-base w-10 h-10 x-icon">
+        <span/>
+        <span/>
       </button>
       <nav class="pt-48 pb-16 px-6">
         <ul class="flex flex-col gap-y-8 items-center text-center">
@@ -156,5 +162,36 @@ function scrollToTop() {
 
   .bottom-shadow {
     box-shadow: -5px 1px 10px rgb(0 0 0 / 0.125);
+  }
+
+  .burger-icon span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: #BF714D;
+    margin-bottom: 10px;
+    border-radius: 0.25rem;
+  }
+
+  .burger-icon span:last-child {
+    margin-bottom: 0;
+  }
+
+  .x-icon span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: #000000;
+    border-radius: 0.25rem;
+    position: absolute;
+    top: 50%;
+  }
+
+  .x-icon span:first-child {
+    transform: rotate(45deg);
+  }
+
+  .x-icon span:last-child {
+    transform: rotate(-45deg);
   }
 </style>
