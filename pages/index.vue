@@ -10,11 +10,11 @@
             <strong>capture the most special moments</strong> as footprints on your globe.
           </p>
           <div class="flex flex-wrap flex-row items-center gap-y-6 gap-x-9">
-            <NuxtLink to="https://play.google.com/store/apps/details?id=at.friendsquest.app">
+            <NuxtLink :to="linkPlayStore" @click="openLinkInNewTab(linkPlayStore, $event)">
               <img src="~/assets/svg/google-play-badge.svg" alt="Google Play Badge"
                    class="h-[50px]">
             </NuxtLink>
-            <NuxtLink to="https://apps.apple.com/at/app/friendsquest/id1667562544">
+            <NuxtLink :to="linkAppStore" @click="openLinkInNewTab(linkAppStore, $event)">
               <img src="~/assets/svg/app-store-badge.svg" alt="App Store Badge" class="h-[50px]">
             </NuxtLink>
           </div>
@@ -137,11 +137,11 @@
       <h2 class="text-3xl font-bold mb-12">Have Fun With FriendsQuest and Keep On Traveling!</h2>
       <p class="font-bold mb-6 text-base">Available on Android and iOS</p>
       <div class="flex flex-col sm:flex-row items-center justify-center">
-        <NuxtLink to="https://play.google.com/store/apps/details?id=at.friendsquest.app">
+        <NuxtLink :to="linkPlayStore" @click="openLinkInNewTab(linkPlayStore, $event)">
           <img src="~/assets/svg/google-play-badge.svg" alt="Google Play Badge"
                class="h-[50px] mb-4 sm:mb-0 mr-0 sm:mr-12">
         </NuxtLink>
-        <NuxtLink to="https://apps.apple.com/at/app/friendsquest/id1667562544">
+        <NuxtLink :to="linkAppStore" @click="openLinkInNewTab(linkAppStore, $event)">
           <img src="~/assets/svg/app-store-badge.svg" alt="App Store Badge" class="h-[50px]">
         </NuxtLink>
       </div>
@@ -184,6 +184,9 @@ const team = [
   }
 ]
 
+const linkAppStore = "https://apps.apple.com/at/app/friendsquest/id1667562544"
+const linkPlayStore = "https://play.google.com/store/apps/details?id=at.friendsquest.app"
+
 const sectionLanding = ref()
 const sectionFriendsQuest = ref()
 const sectionFAQ = ref()
@@ -209,6 +212,13 @@ function onIntersect(entries) {
     }
   })
 }
+
+function openLinkInNewTab(link, event) {
+  event.preventDefault(); // Prevents the default navigation behavior
+  const newTab = window.open(link, '_blank');
+  newTab.focus();
+}
+
 
 </script>
 
